@@ -1,16 +1,16 @@
-def triggers(string token, string trigger_branch) {
+def triggers() {
     triggers{
         GenericTrigger(
             genericVariables: [
             [key: 'branch', value: '$.ref']
             ],
             causeString: 'Triggered on $branch',
-            token: token, //变更
+            token: "${env.TOKEN}", //变更
             printContributedVariables: true,
             printPostContent: true,
             silentResponse: false,
             regexpFilterText: '$branch',
-            regexpFilterExpression: '^refs/heads/(' + trigger_branch +')$' //变更
+            regexpFilterExpression: "^refs/heads/(${env.TRIGGER_BRANCH})$" //变更
         )
     }
 }

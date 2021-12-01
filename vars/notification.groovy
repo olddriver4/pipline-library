@@ -1,5 +1,5 @@
 def pre_dingding() {
-    post {
+        post {
         success {
             wrap([$class: 'BuildUser']) {
                 script {
@@ -23,14 +23,12 @@ def pre_dingding() {
             )
         }
     }
-    
-    steps {
-        script {
-            currentBuild.displayName = "Deploy on ${branchName} [#${BUILD_NUMBER}]"
-            currentBuild.description = "Project: ${env.PROJECT_NAME}\n" +
-                                        "Branch: ${branchName}\n"
-        }
-    }
+}
+
+def build_text() {
+    currentBuild.displayName = "Deploy on ${branchName} [#${BUILD_NUMBER}]"
+    currentBuild.description = "Project: ${env.PROJECT_NAME}\n" +
+                                "Branch: ${branchName}\n"
 }
 
 def dingding() {
