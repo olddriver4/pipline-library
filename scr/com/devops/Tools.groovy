@@ -1,4 +1,4 @@
-package org.devops
+package com.devops
 
 class Tools {
     def printcolor(value,color){
