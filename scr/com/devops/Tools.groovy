@@ -7,7 +7,7 @@ class Tools {
                 'green' : "^[[1;32m>>>>>>>>>>${value}>>>>>>>>>>^[[m",
                 'green1' : "\033[40;32m >>>>>>>>>>>${value}<<<<<<<<<<< \033[0m" ]
         ansiColor('xterm') {
-            return colors[color]
+            println(colors[color])
         }
     }
 }
