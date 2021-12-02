@@ -38,6 +38,7 @@ def GetCode(src, branchName, giturl, credentialsId) {
             gitTool: 'Default',
             submoduleCfg: [],
             userRemoteConfigs: [[url: "${giturl}", credentialsId: "${credentialsId}"]]
+        ])
     }
 }
 
