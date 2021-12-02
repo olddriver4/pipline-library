@@ -1,5 +1,5 @@
 # pipline-library  
-### 引用  
+##### 参考：https://www.jenkins.io/zh/doc/book/pipeline/shared-libraries/   
 ##### 1. 只能在script中引用共享库，这是Jenkins规范的  
 ##### 2. vars默认使用def call()方式编写   
 (root)
@@ -35,4 +35,4 @@
 - String branchName = "${env.Branch}"  
 > 在非pipeline定义全局变量，外部也可以调用  
 
-- 引用是 脚本名+函数名：tools.tool()  
+- 引用是 脚本名+函数名：tools.tool()   
