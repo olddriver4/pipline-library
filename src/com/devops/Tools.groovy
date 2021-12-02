@@ -10,7 +10,7 @@ def Printcolor(value, color){
     }
 }
 
-def GetBranch(branch) {
+def GetBranch() {
     try{                    
         if("${branch}" != ""){
         println "----------webhook式触发-----------"
