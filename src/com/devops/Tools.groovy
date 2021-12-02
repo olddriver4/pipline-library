@@ -6,29 +6,29 @@ def Printcolor(value, color){
             'green' : "^[[1;32m>>>>>>>>>>${value}>>>>>>>>>>^[[m",
             'green1' : "\033[40;32m >>>>>>>>>>>${value}<<<<<<<<<<< \033[0m" ]
     ansiColor('xterm') {
-        println(colors[color])
+        log.info(colors[color])
     }
 }
 
 def GetBranch() {
     try{                    
         if("${branch}" != ""){
-        println "----------webhook式触发-----------"
+        log.info  "----------webhook式触发-----------"
         env.branchName = branch - "refs/heads"
         env.branchName = sh(returnStdout: true,script: "echo ${branchName}|awk -F '/' '{print \$NF}'").trim()
-        println "webhook触发的分支是: " + "${branchName}"
+        log.info  "webhook触发的分支是: " + "${branchName}"
         }
     } catch(exc) { }          
         if("${params.repoBranch}" != 'null'){
-        println "-----------手动方式触发------------"
+        log.info "-----------手动方式触发------------"
         env.branchName = "${params.repoBranch}"
-        println "手动触发的分支是: " + "${branchName}"
+        log.info "手动触发的分支是: " + "${branchName}"
     } 
 }
 
 def GetCode(src) {
     if (src == "git") {
-        println("拉取代码 --> 分支： ${branchName}")
+        log.info("拉取代码 --> 分支： ${branchName}")
         //deleteDir() //clean up our workspace
         sh "rm -rf ./*"
         checkout([
