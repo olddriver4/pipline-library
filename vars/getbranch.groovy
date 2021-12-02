@@ -1,4 +1,4 @@
-def getbranch() {
+def call() {
     try{                    
         if("${branch}" != ""){
         println "----------webhook式触发-----------"

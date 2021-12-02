@@ -1,5 +1,5 @@
-def pre_dingding() {
-        post {
+def call() {
+    post {
         success {
             wrap([$class: 'BuildUser']) {
                 script {
@@ -32,7 +32,7 @@ def build_text() {
 }
 
 def dingding() {
-        post {
+    post {
         success {
             wrap([$class: 'BuildUser']) {
                 script {
