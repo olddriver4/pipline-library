@@ -26,7 +26,7 @@ def GetBranch() {
     } 
 }
 
-def GetCode(src, branchName, giturl, credentialsId) {
+def GetCode(src) {
     if (src == "git") {
         println("拉取代码 --> 分支： ${branchName}")
         deleteDir() //clean up our workspace
@@ -37,13 +37,13 @@ def GetCode(src, branchName, giturl, credentialsId) {
             extensions: [],
             gitTool: 'Default',
             submoduleCfg: [],
-            userRemoteConfigs: [[url: "${giturl}", credentialsId: "${credentialsId}"]]
+            userRemoteConfigs: [[url: "${env.GIT_URL}", credentialsId: "${env.CREDENTIALSID}"]]
         ])
     }
 }
 
-def Build_text(branchName, projectName) {
+def Build_text() {
     currentBuild.displayName = "Deploy on ${branchName} [#${BUILD_NUMBER}]"
-    currentBuild.description = "Project: ${projectName}\n" +
+    currentBuild.description = "Project: ${env.PROJECT_NAME}\n" +
                                 "Branch: ${branchName}\n"
 }
