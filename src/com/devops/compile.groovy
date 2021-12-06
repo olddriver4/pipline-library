@@ -12,7 +12,7 @@ def Compile(compileType, buildversion, filename){
                 """
             }
             catch (err) {
-                log.error "[Golang] failed to compile the package !"
+                err "[Golang] failed to compile the package !"
             }
             break
         case "node":
@@ -28,7 +28,7 @@ def Compile(compileType, buildversion, filename){
                 """
             }
             catch (err) {
-                log.error "[Node] failed to compile the package !"
+                err "[Node] failed to compile the package !"
             }
             break
         default:
