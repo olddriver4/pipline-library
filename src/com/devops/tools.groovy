@@ -30,7 +30,7 @@ def GetCode(src) {
     if (src == "git") {
         log.info("拉取代码 --> 分支： ${branchName}")
         //deleteDir() //clean up our workspace
-        sh "sudo rm -rf ./*"
+        sh "sudo find . -delete"
         checkout([
             $class: 'GitSCM',
             branches: [[name: "${branchName}"]],
